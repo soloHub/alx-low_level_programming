@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include <unistd.h>
 /**
  * main - Entry point
  *
@@ -9,8 +8,7 @@
  */
 int main(void)
 {
-	char c[70] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	perror("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
 
-	fwrite(c, 70, 1, stderr);
 	return (1);
 }
