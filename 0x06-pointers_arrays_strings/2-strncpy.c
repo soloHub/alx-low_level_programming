@@ -3,7 +3,7 @@
 /**
  * _strncpy - copy the string pointed to by @src,
  * into a string at the buffer pointed to by @dest
- * @dest: string to copy into 
+ * @dest: string to copy into
  * @src: string to be copied
  * @n: number of byte to copy
  * Return: return pointer to @dest
