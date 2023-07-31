@@ -33,7 +33,7 @@ int main(void)
 			b2 = h2;
 			printf("%lu", b2);
 		}
-		if (count != 97)
+		if (i != 97)
 			printf(", ");
 	}
 	printf("\n");
