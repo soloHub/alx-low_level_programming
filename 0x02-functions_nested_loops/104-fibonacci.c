@@ -1,31 +1,50 @@
 #include <stdio.h>
 
 /**
- * main - Prints the first 98 Fibonacci numbers
+ * main - Prints the first 98 Fibonacci numbers, starting with
+ *        1 and 2, separated by a comma followed by a space.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int index = 2;
+	int i;
+	unsigned long f1 = 0, f2 = 1, sum;
+	unsigned long f1_h1, f1_h2, f2_h1, f2_h2;
+	unsigned long h_1, h_2;
 
-	float a = 1;
-	float b = a + 1;
-	float c;
-
-	printf("%.0f, %.0f, ", a, b);
-
-	while (index < 98)
+	for (i = 0; i < 92; i++)
 	{
-		c = a + b;
-		printf("%.0f", c);
-		a = b;
-		b = c;
-		if (index < 98)
+		sum = f1 + f2;
+		printf("%lu, ", sum);
+
+		f1 = f2;
+		f2 = sum;
+	}
+
+	f1_h1 = f1 / 10000000000;
+	f2_h1 = f2 / 10000000000;
+	f1_h2 = f1 % 10000000000;
+	f2_h2 = f2 % 10000000000;
+
+	for (i = 92; i < 99; i++)
+	{
+		h1 = f1_h1 + f2_h1;
+		h2 = f1_h2 + f2_h2;
+		if (f1_h2 + f2_h2 > 9999999999)
 		{
-			printf(", ");
+			h1 += 1;
+			h2 %= 10000000000;
 		}
-		index++;
+
+		printf("%lu%lu", h1, h2);
+		if (i != 98)
+			printf(", ");
+
+		f1_h1 = f2_h1;
+		f1_h2 = f2_h2;
+		f2_h1 = h1;
+		f2_h2 = h2;
 	}
 	printf("\n");
 	return (0);
