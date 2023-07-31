@@ -20,6 +20,6 @@ int main(void)
 			sum += prv;
 		}
 	}
-	printf("%ld\n", afn);
+	printf("%ld\n", sum);
 	return (0);
 }
