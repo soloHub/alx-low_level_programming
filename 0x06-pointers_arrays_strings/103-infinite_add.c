@@ -1,65 +1,46 @@
 #include "main.h"
-#include <stdio.h>
-/**
- * infinite_add - adds two numbers
- * @n1: number one.
- * @n2: number two.
- * @r: buffer that the function will use to store the result.
- * @size_r: buffer size:
- * Return: the pointer to dest.
- */
 
+/**
+ * infinite_add - adds two numbers @n1 @n2
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer for result
+ * @size_r: buffer size
+ * Return: address of r or 0
+ */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int l1 = 0, l2 = 0, fn, bl, p1, p2, sum = 0;
+	int i, j, k, l, m, n;
 
-	while (*(n1 + l1) != '\0')
-		l1++;
-	while (*(n2 + l2) != '\0')
-		l2++;
-	if (l1 >= l2)
-		bl = l1;
-	else
-		bl = l2;
-	if (size_r <= bl + 1)
+	for (i = 0; n1[i]; i++)
+		;
+	for (j = 0; n2[j]; j++)
+		;
+	if (i > size_r || j > size_r)
 		return (0);
-	r[bl + 1] = '\0';
-	l1--;
-	l2--;
-	size_r--;
-	p1 = *(n1 + l1) - 48;
-	p2 = *(n2 + l2) - 48;
-	while (bl >= 0)
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		fn = p1 +p + sum;
-		if (fn >= 10)
-			sum = fn / 10;
-		else
-			sum = 0;
-		if (fn > 0)
-			*(r + bl) = (fn % 10) + 48;
-		else
-			*(r + bl) = '0';
-		if (l1 > 0)
+		n = m;
+		if (i >= 0)
+			n += n1[i] - '0';
+		if (j >= 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
 		{
-			l1--;
-			p1 = *(n1 + l1) - 48;
+			break;
 		}
-		else
-			p1 = 0;
-		if (l2 > 0)
-		{
-			l2--;
-			p2 = *(n2 + l2) - 48;
-		}
-		else
-			p2 = 0;
-		bl--;
-		size_r--;
+		m = n / 10;
+		r[k] = n % 10 + '0';
 	}
-	if (*(r) == '0')
-		return (r + 1);
-	else
-		return (r);
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
+	{
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
+	}
+	return (r);
 }
-
