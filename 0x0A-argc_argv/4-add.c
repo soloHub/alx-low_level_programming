@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	int x, num, total = 0;
-	char *flag;
+	char *f;
 
 	if (argc < 2)
 	{
@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 
 	for (x = 1; argv[x]; x++)
 	{
-		num = strtol(argv[x], &flag, 10);
-		if (*flag)
+		num = strtol(argv[x], &f, 10);
+		if (*f)
 		{
 			printf("Error\n");
 			return (1);
