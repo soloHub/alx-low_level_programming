@@ -10,8 +10,8 @@
 int main(int argc, char *argv[])
 {
 	char *x;
-    unsigned int i;
-    int count, val;
+	unsigned int i;
+	int count, val;
 	int cents[] = {25, 10, 5, 2};
 
 	if (argc != 2)
@@ -28,14 +28,14 @@ int main(int argc, char *argv[])
 		while (val > 1)
 		{
 			i = 0;
-            while (i < sizeof(cents[i]))
+			while (i < sizeof(cents[i]))
 			{
 				if (val >= cents[i])
 				{
 					count += val / cents[i];
 					val = val % cents[i];
 				}
-                i++;
+				i++;
 			}
 		}
 		if (val == 1)
