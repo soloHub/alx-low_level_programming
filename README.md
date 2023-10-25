@@ -1,3 +1,3 @@
 # alx-low_level_programming
-alx programming exercise in c
+alx programming exercises in c
 Data structure
