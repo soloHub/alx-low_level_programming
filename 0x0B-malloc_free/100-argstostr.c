@@ -12,7 +12,7 @@ char *argstostr(int ac, char **av)
 	char *conArg;
 	int len, i, j, k;
 
-	if (ac == 0 || av[i] == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	for (len = 0, i = 0; i < ac; i++)
