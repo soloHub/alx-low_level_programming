@@ -18,7 +18,7 @@ char **strtow(char *str)
 		return (NULL);
 	exp = malloc((total + 1) * sizeof(char *));
 	if (exp == NULL)
-		free(exp), return (NULL);
+		free(exp); return (NULL);
 	for (i = 0; str[i] != '\0' &&  k < total; i++)
 		if (str[i] != ' ')
 		{
