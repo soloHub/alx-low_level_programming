@@ -30,11 +30,11 @@ char **strtow(char *str)
 			{
 				for (m = 0; m < k; m++)
 					free(exp[k]);
-				free(exp), return (NULL);
+				free(exp); return (NULL);
 			}
 			for (l = 0; l < len; l++, i++)
 				exp[k][l] = str[i];
 			exp[k][l] = '\0', k++;
 		}
-	exp[k] = NULL, return (exp);
+	exp[k] = NULL; return (exp);
 }
