@@ -4,7 +4,7 @@
 /**
  * strtow - splits a string @str into exp.
  * @str: string.
- * Result: pointer to an array of strings (exp) or null
+ * Return: pointer to an array of strings (exp) or null
  */
 char **strtow(char *str)
 {
